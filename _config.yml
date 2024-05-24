@@ -20,12 +20,12 @@ description: My personal website
 baseurl: # the optional subpath of your site, e.g. "/blog"
 url: https://SidG13.github.io # the base hostname & protocol for your site e.g. ""
 author:
-  name:
+  name: Siddharth Gopalan
   twitter:
   picture:
 twitter_username:
 github_username: SidG13
-logo: /assets/icons/hydrop_myotoxin1.png # path of site logo, e.g. "/assets/images/logo.png"
+logo: /assets/icons/logo.png # path of site logo, e.g. "/assets/images/logo.png"
 search: # true, false (default)
 search_full_content: false # true, false (default)
 search_provider: # lunr (default), algolia

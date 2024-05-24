@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 lang: en-US
-title: Personal Website
+title: Siddharth S. Gopalan
 email: siddharth.gopalan@uta.edu
 description: My personal website
 baseurl: # the optional subpath of your site, e.g. "/blog"
@@ -47,7 +47,7 @@ feed:
   path: atom.xml
 
 # Pagination - https://jekyllrb.com/docs/pagination/
-paginate: 10
+paginate: 5
 paginate_path: /page:num/
 
 # Exclude from processing.

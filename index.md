@@ -1,19 +1,17 @@
 ---
 layout: home
 paginate: true
-alt_title: "Personal Website"
-sub_title: "Welcome to Sid's personal website"
-image: /assets/images/IMG_20230813_104145_485.jpg
+alt_title: "Siddharth Gopalan"
+sub_title: "Functional genomics and mechanisms underlying variation"
+# image: /assets/images/landscape.png
 introduction: |
-  Basically Basic is a [Jekyll theme](https://jekyllrb.com/docs/themes/) meant as a substitute for the default --- [Minima](https://github.com/jekyll/minima). Conventions and features found there are fully supported by **Basically Basic**, with a few enhancements thrown in for good measure:
+  I'm a PhD candidate in [Todd Castoe's lab](https://www.castoelaboratory.org/) at the [University of Texas, Arlington](https://www.uta.edu/academics/schools-colleges/science/departments/biology) studying the origination and evolution of novel gene regulatory networks. I did my bachelor's degree at the [University of Toronto](https://eeb.utoronto.ca/).
 
-  - Clean responsive design with six customizable skins
-  - Curriculum Vitæ/Resume layout powered by [JSON data](http://registry.jsonresume.org/)
-  - About page layout
-  - Disqus Comments and Google Analytics support
-  - SEO best practices via [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag/)
 actions:
-  - label: "Get Started"
+  - label: "Github"
     icon: github
     url: "https://github.com/SidG13"
+  - label: "Google Scholar"
+    icon: google-scholar
+    url: "https://scholar.google.com/citations?user=VgDD6koAAAAJ&hl=en"
 ---

@@ -1,0 +1,86 @@
+{
+    "basics": {
+      "name": "Siddharth Gopalan",
+      "label": "PhD Candidate, Quantitative Biology",
+      "picture": "",
+      "email": "Siddharth.Gopalan@uta.edu",
+      "summary": "I leverage several different computational genomic techniques to better understand the molecular drivers of phenotypic variation.",
+      "location": {
+        "address": "501 S. Nedderman Drive",
+        "postalCode": "TX 76010",
+        "city": "Arlington",
+        "countryCode": "US",
+        "region": "Texas"
+      },
+      "profiles": [
+        {
+          "network": "Google Scholar",
+          "username": "Link",
+          "url": "https://scholar.google.com/citations?user=VgDD6koAAAAJ&hl=en"
+        },
+        {
+          "network": "ReseachGate",
+          "username": "Link",
+          "url": "https://www.researchgate.net/profile/Siddharth-Gopalan"
+        }
+      ]
+    },
+    "work": [
+        {
+          "company": "University of Texas, Arlington",
+          "position": "Graduate Research and Teaching Assistant",
+          "website": "https://www.uta.edu/academics/schools-colleges/science/departments/biology",
+          "startDate": "Aug 2020",
+          "endDate": "",
+          "summary": "Laboratory instructor for undergraduate courses Cell and Molecular Biology (BIOL 1441) and Evolution and Ecology (BIOL 1442).",
+        },
+      ],
+    "education": [
+      {
+        "institution": "University of Toronto",
+        "area": "Genome Biology; Evolutionary Biology",
+        "studyType": "B.Sc.",
+        "startDate": "2016",
+        "endDate": "2020",
+        "gpa": "3.97/4.0",
+      }
+    ],
+    "publications": [
+      {
+        "name": "Diverse gene regulatory mechanisms alter rattlesnake venom gene expression at fine evolutionary scales",
+        "publisher": "Genome Biology and Evolution",
+        "releaseDate": "2024",
+        "website": "https://doi.org/10.1093/gbe/evae110",
+        "summary": "***Gopalan, S.S.***, B.W. Perry, Y.Z. Francioli, D.R. Schield, H.D. Guss, J.M. Bernstein, K. Ballard, C.F. Smith, A.J. Saviola, R.H. Adams, S.P. Mackessy, and T.A. Castoe."
+      },
+      {
+        "name": "Single-cell heterogeneity in snake venom expression is hardwired by co-option of regulators from progressively activated pathways",
+        "publisher": "Genome Biology and Evolution",
+        "releaseDate": "2023",
+        "website": "https://doi.org/10.1093/gbe/evad109",
+        "summary": "***Westfall, A.K.***\\*, ***Gopalan, S.S.***\\*, B.W. Perry, R.H. Adams, A.J. Saviola, S.P. Mackessy, and T.A. Castoe. [*joint first authors]"
+      },
+      {
+        "name": "The roles of balancing selection and recombination in the evolution of rattlesnake venom",
+        "publisher": "Nature Ecology and Evolution",
+        "website": "https://doi.org/10.1038/s41559-022-01829-5", 
+        "releaseDate": "2022",
+        "summary": "Schield, D.R., B.W. Perry, R.H. Adams, M.L. Holding, Z.L. Nikolakis, ***S.S. Gopalan***, C.F. Smith, J.M. Parker, J.M. Meik, S.P. Mackessy, and T.A. Castoe."
+      },
+      {
+        "name": "Origins, genomic structure and copy number variation of snake venom myotoxins",
+        "publisher": "Toxicon",
+        "website": "https://doi.org/10.1016/j.toxicon.2022.06.014", 
+        "releaseDate": "2022",
+        "summary": "***Gopalan, S.S.***, B.W. Perry, D.R. Schield, C.F. Smith, S.P. Mackessy, and T.A. Castoe."
+      },
+      {
+        "name": "Snake venom gene expression is coordinated by novel regulatory architecture and the integration of multiple coopted vertebrate pathways",
+        "publisher": "Genome Research",
+        "website": "https://www.genome.org/cgi/doi/10.1101/gr.276251.121", 
+        "releaseDate": "2022",
+        "summary": "Perry, B.W., ***S.S Gopalan***, G.I.M. Pasquesi, D.R. Schield, A.K. Westfall, C.F. Smith, I. Koludarov, P.T. Chippindale, M.K. Pellegrino, E.B. Chuong, S.P. Mackessy, and T.A. Castoe."
+      },
+    ],
+  }
+  

@@ -19,10 +19,15 @@
           <div class="date">{{ p.releaseDate }}</div>
         {% endif %}
         {% if p.publisher %}
-          <h5 class="publisher">{{ p.publisher | prepend: 'Published by ' }}</h5>
+          <div style="margin-left: 40px;"> <!-- Adjust the indentation as needed -->
+            <h5 class="publisher">{{ p.publisher | prepend: '' }}</h5>
+          </div>
         {% endif %}
+        <br>
         {% if p.summary %}
-          <div class="summary">{{ p.summary | markdownify }}</div>
+          <div style="margin-left: 40px;"> <!-- Adjust the indentation as needed -->
+            <div class="summary">{{ p.summary | markdownify }}</div>
+          </div>
         {% endif %}
       {% endfor %}
     </div>

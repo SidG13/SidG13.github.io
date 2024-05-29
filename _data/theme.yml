@@ -1,5 +1,5 @@
 # Theme Skin
-skin: night # default, night, plum, sea, soft, steel
+skin: default # default, night, plum, sea, soft, steel
 
 # Theme Text
 t:
@@ -37,7 +37,7 @@ t:
   cv_references: "References"
   cv_skills: "Skills"
   cv_volunteer: "Volunteer"
-  cv_work: "Work"
+  cv_work: "Professional Positions"
 
 # Google Fonts
 google_fonts:

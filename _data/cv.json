@@ -32,8 +32,8 @@
           "website": "https://www.uta.edu/academics/schools-colleges/science/departments/biology",
           "startDate": "Aug 2020",
           "endDate": "",
-          "summary": "Laboratory instructor for undergraduate courses Cell and Molecular Biology (BIOL 1441) and Evolution and Ecology (BIOL 1442).",
-        },
+          "summary": "Laboratory instructor for undergraduate courses Cell and Molecular Biology (BIOL 1441) and Evolution and Ecology (BIOL 1442)."
+        }
       ],
     "education": [
       {
@@ -41,8 +41,7 @@
         "area": "Genome Biology; Evolutionary Biology",
         "studyType": "B.Sc.",
         "startDate": "2016",
-        "endDate": "2020",
-        "gpa": "3.97/4.0",
+        "endDate": "2020"
       }
     ],
     "publications": [
@@ -80,7 +79,7 @@
         "website": "https://www.genome.org/cgi/doi/10.1101/gr.276251.121", 
         "releaseDate": "2022",
         "summary": "Perry, B.W., ***S.S Gopalan***, G.I.M. Pasquesi, D.R. Schield, A.K. Westfall, C.F. Smith, I. Koludarov, P.T. Chippindale, M.K. Pellegrino, E.B. Chuong, S.P. Mackessy, and T.A. Castoe."
-      },
-    ],
+      }
+    ]
   }
   

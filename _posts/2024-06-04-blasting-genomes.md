@@ -1,5 +1,5 @@
 ---
-title: "Increasing the efficiency of many-by-many BLAST"
+title: "Increasing the efficiency of BLAST"
 sub_title: "BLASTing multi-fasta queries against multi-fasta databases, with taxonomy information"
 categories:
   - Bioinformatics
@@ -49,7 +49,7 @@ We'll not only need to download the `nt` database for this, but also a few taxon
 
 **nt.gz**
 ```shell
-wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz # Remember, this is a huge file. This may take a while.
 gunzip nt.gz # This will take up a lot of space!
 ```
 
@@ -95,9 +95,12 @@ Because we have also set up taxonomy information in the `nt/` database, we will 
 
 <br>
 #### Parallel BLAST script
+
 The actual BLAST command is near the end of the script, and its options can be modified in any way you choose.
 
-[parallel_genome_blasting.sh](assets/parallel_genome_blasting.sh)
+[parallel_genome_blasting.sh][1]
+
+[1]:{{ site.url }}{{ site.baseurl }}/assets/blog_files/parallel_genome_blasting.sh
 
 ```bash
 #!/bin/bash
@@ -177,7 +180,7 @@ rm -rf "${genome}.split"
 
 ## Output
 
-The output found in the `megablast.out` is shown below. The columns correspond to options set with the `-outfmt` argument.
+An example output found in the `megablast.out` is shown below. The columns correspond to options set with the `-outfmt` argument.
 
 ```bash
 Scaffold_31_HRSCAF_176	MT070612	8732	Eukaryota	Crotalus durissus terrificus	tropical rattlesnake	0.0	6948

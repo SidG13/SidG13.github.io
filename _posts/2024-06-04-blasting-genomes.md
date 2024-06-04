@@ -177,7 +177,7 @@ ls "${genome}.split"/*.fasta | parallel -j "$num_cores" \
 # Clean up temporary files
 rm -rf "${genome}.split"
 ```
-
+<br>
 ## Output
 
 An example output found in the `megablast.out` is shown below. The columns correspond to options set with the `-outfmt` argument.
@@ -196,3 +196,8 @@ Quickly <kbd>Control + F</kbd> or <kbd>⌘ + F</kbd> this file to see if there a
 awk -F'\t' '$4 == "Eukaryota" {print $1}' megablast.out > eukaryotic_sequences.txt
 seqkit grep -f eukaryotic_sequences.txt genome.fasta > no_contaminants_genome.fasta
 ```
+
+<br>
+## Data compression
+
+NCBI databases are huge, and you don't want them to take up that much space when not in use. [Daren Card's blog post](https://darencard.net/blog/2022-07-16-genomics-data-management/) goes over many details on how to compress large directories after you're done using them. 

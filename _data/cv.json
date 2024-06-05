@@ -5,23 +5,16 @@
       "picture": "",
       "email": "Siddharth.Gopalan@uta.edu",
       "summary": "I leverage several different computational genomic techniques to better understand the molecular drivers of phenotypic variation.",
-      "location": {
-        "address": "501 S. Nedderman Drive",
-        "postalCode": "TX 76010",
-        "city": "Arlington",
-        "countryCode": "US",
-        "region": "Texas"
-      },
       "profiles": [
         {
-          "network": "Google Scholar",
-          "username": "Link",
-          "url": "https://scholar.google.com/citations?user=VgDD6koAAAAJ&hl=en"
+          "network": "",
+          "username": "",
+          "url": ""
         },
         {
-          "network": "ReseachGate",
-          "username": "Link",
-          "url": "https://www.researchgate.net/profile/Siddharth-Gopalan"
+          "network": "",
+          "username": "",
+          "url": ""
         }
       ]
     },

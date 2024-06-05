@@ -1,6 +1,6 @@
 ---
-title: "Increasing the efficiency of BLAST"
-sub_title: "BLASTing multi-fasta queries against multi-fasta databases, with taxonomy information"
+title: "Speeding up local BLAST using GNU parallel"
+sub_title: "BLASTing large multi-fasta queries against larger multi-fasta databases. Plus, a tutorial on how to extract taxonomy data from BLAST."
 categories:
   - Bioinformatics
 elements:
@@ -10,16 +10,17 @@ elements:
   - parallelization
   - taxonomy
 ---
-Below, I provide methods and a script to show you how to set up a BLAST search to identify contaminant sequences (of non-eukaryotic origin) in a eukaryotic genome assembly. You can easily modify this procedure for any use case however (such as different search parameters, databases etc.) by changing the script provided. The main point is to make big BLAST tasks faster by using GNU `parallel`.
+ 
+Here I'll show you how to parallelize BLAST to greatly improve runtime. This may be needed if you are BLASTing a large query sequence set against a giant database. The specific problem I'm solving here is to identify contaminant sequences (of non-eukaryotic origin), accessioned in NCBI's `nt` database, in a eukaryotic genome assembly stored locally.  But, you can easily modify this procedure for any use case (such as using different search parameters, databases etc.) by changing the provided script.
 
-**Make sure you have plenty of available space on your machine (several Tb) before uncompressing any files!**
+**Make sure you have plenty of available space on your machine (several Tb) before uncompressing any files from NCBI!**
 
 <br>
 
 ## Large sequence databases
-A problem that arises every once in a while is the need to blast very large query sets, such as a pre-assembly genome or transcriptome, against NCBI databases like the `nt` database, which as of the time of this post, when uncompressed is just shy of 2 Tb! 
+A problem that arises every once in a while is the need to blast very large query sets, such as a pre-assembly genome or transcriptome, against NCBI databases like the `nt` database, which as of the time of this post, has an expanded size just shy of 2 Tb! 
 
-Blasting a large genome/transcriptome against this database can take days or weeks. We can greatly speed up this process with GNU `parallel`. 
+Blasting a large genome/transcriptome against this database can take days or weeks depending on your hardware. We can greatly speed up this process with GNU `parallel`. 
 
 <br>
 
@@ -32,22 +33,21 @@ mamba install -c bioconda blast
 <br>
 
 [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit") is used to split a fasta into parts. It too can be installed with `conda` or `mamba`:
-
 ```shell
 mamba install -c bioconda seqkit
 ```
 <br>
 
-[GNU parallel](https://www.gnu.org/software/parallel/) lets you distribute jobs across different threads. Install the appropriate version for your OS.
+[GNU parallel](https://www.gnu.org/software/parallel/) lets you distribute jobs across different CPU cores. Install the appropriate version for your OS.
 
 <br>
 
 ## Downloading and setting up appropriate files
 
-We'll not only need to download the `nt` database for this, but also a few taxonomy files from NCBI. This will allow us to access and parse taxonomy-related information from our BLAST search. All these accessory files get dumped into the `nt/` directory.
+We'll not only need to download the `nt` database for this, but also a few taxonomy files from NCBI. This will allow us to access and parse taxonomy-related information from our BLAST search. All these taxonomy files get dumped into the `nt/`  directory for simplicity.
 
 
-**nt.gz**
+**NCBI's nucleotide database**
 ```shell
 wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz # Remember, this is a huge file. This may take a while.
 gunzip nt.gz # This will take up a lot of space!
@@ -74,15 +74,15 @@ tar -xvzf nt/taxdump.tar.gz
 makeblastdb -in nt/ -dbtype nucl -parse_seqids -taxid_map taxidmapfile
 ```
 
-Now we're ready to run BLAST!
+We've set up files and made the database incorporate encoded taxonomy data for every accession. Now we're ready to run BLAST!
 
 <br>
 
 ## Running parallel blast, including taxonomy outputs
 
-By default, the BLAST algorithm will take a single query sequence and perform the local alignment against the entire database. If we have a file with thousands of queries, like a pre-assembly genome or transcriptome, this will take a long time. The basis of this script is to split up a BLAST problem into several individual parts using `seqkit` and `parallel`. If you have the computational power, different threads will partition the BLAST task to run in parallel, speeding it up greatly. 
+By default, the BLAST algorithm when run locally takes a single query sequence and performs the seeding/extension alignment for every sequence in the entire database. If we have a file with thousands of queries, like a pre-assembly genome or transcriptome, this will take a very long time. The basis of this script is to split up and distribute a BLAST problem using `seqkit split` and GNU `parallel`. If you have the computational resources, different cores will partition the BLAST task to run in parallel, speeding it up greatly. 
 
-Because we have also set up taxonomy information in the `nt/` database, we will be able to extract taxonomy-relevant information from our search. Below are some of the options I use when querying, a full list is found [here](https://www.ncbi.nlm.nih.gov/books/NBK279684/table/appendices.T.options_common_to_all_blast/ "Blast options").
+Because we have also set up taxonomy information in the `nt/` database for retrieval, we will be able to extract taxonomy-relevant information from our search. Below are some of the options I use when querying, a full list is found [here](https://www.ncbi.nlm.nih.gov/books/NBK279684/table/appendices.T.options_common_to_all_blast/ "Blast options").
 
 | Option | Definition | 
 |:--------|:-------:|
@@ -105,12 +105,10 @@ The actual BLAST command is near the end of the script, and its options can be m
 ```bash
 #!/bin/bash
 
-# Default values
 genome=""
 num_cores=1
 NT=""
 
-# Function to display help message
 display_help() {
     echo "Usage: $0 -g <genome.fasta> -n <NT_path> -p <num_cores>"
     echo "Options:"
@@ -120,7 +118,6 @@ display_help() {
     echo "  -h: Display this help message"
 }
 
-# Parse command-line options
 while getopts ":g:n:p:h" opt; do
     case $opt in
         g)
@@ -147,7 +144,6 @@ while getopts ":g:n:p:h" opt; do
     esac
 done
 
-# Check if required options are provided
 if [[ -z $genome || -z $NT ]]; then
     echo "Error: Missing required options."
     display_help
@@ -174,13 +170,13 @@ ls "${genome}.split"/*.fasta | parallel -j "$num_cores" \
     -evalue 1e-25' \
     > $(basename "$genome").vs.nt.mts1.hsp1.1e25.megablast.out
 
-# Clean up temporary files
+# Clean up temp files
 rm -rf "${genome}.split"
 ```
 <br>
 ## Output
 
-An example output found in the `megablast.out` is shown below. The columns correspond to options set with the `-outfmt` argument.
+An example output found in the `megablast.out` file is shown below. The columns correspond to options set with the `-outfmt` argument.
 
 ```bash
 Scaffold_31_HRSCAF_176	MT070612	8732	Eukaryota	Crotalus durissus terrificus	tropical rattlesnake	0.0	6948
@@ -200,4 +196,4 @@ seqkit grep -f eukaryotic_sequences.txt genome.fasta > no_contaminants_genome.fa
 <br>
 ## Data compression
 
-NCBI databases are huge, and you don't want them to take up that much space when not in use. [Daren Card's blog post](https://darencard.net/blog/2022-07-16-genomics-data-management/) goes over many details on how to compress large directories after you're done using them. 
+NCBI databases are huge, and you don't want them to take up that much space when not in use. [Daren Card's blog post](https://darencard.net/blog/2022-07-16-genomics-data-management/) on this topic goes over many details on how to compress large directories after you're done using them. 

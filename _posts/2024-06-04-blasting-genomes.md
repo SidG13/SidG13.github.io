@@ -114,8 +114,8 @@ display_help() {
     echo "Options:"
     echo "  -g <genome.fasta>: Path to the genome FASTA file"
     echo "  -n <NT_path>: Path to the NCBI nucleotide NT database (with TXDB files inside also)"
-    echo "  -p <num_cores>: Number of CPU cores to use for parallelization (default: 1)"
-    echo "  -h: Display this help message"
+    echo "  -p <num_cores>: Number of CPU cores to use for parallelization (the default is 1)"
+    echo "  -h: Display help message"
 }
 
 while getopts ":g:n:p:h" opt; do
@@ -145,7 +145,7 @@ while getopts ":g:n:p:h" opt; do
 done
 
 if [[ -z $genome || -z $NT ]]; then
-    echo "Error: Missing required options."
+    echo "Error: Some options are missing."
     display_help
     exit 1
 fi

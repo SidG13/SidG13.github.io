@@ -5,7 +5,7 @@ permalink: /research/
 image: assets/images/research.png
 ---
 
-In the absolute broadest terms, my interests lie in discovering the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), I began exploring the production of venom differences in snake venom systems, which are notable for the incredible variation in venom composition, even within the same species. Delving into this question required the combined use of many different genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome data and others. I go into more detail on specific research themes, and work I was involved in below.
+In the absolute broadest terms, my interests lie in understanding the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), I began exploring the production of phenotypic differences in snake venom systems, which are notable for the incredible variation in venom composition, even between individuals of the same species. Delving into this question required the combined use of several different genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome data and others. Below, I go into more detail on specific research themes and work I've been involved with.
 
 <br>
 

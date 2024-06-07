@@ -5,14 +5,14 @@ permalink: /research/
 image: assets/images/research.png
 ---
 
-In the absolute broadest terms, my interests lie in understanding the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), I began exploring the production of phenotypic differences in snake venom systems, which are notable for the incredible variation in venom composition, even between individuals of the same species. Delving into this question required the combined use of several different genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome data and others. Below, I go into more detail on specific research themes and work I've been involved with.
+In the broadest terms, my interests lie in understanding the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), my focus was on investigating the production of phenotypic differences in snake venom systems. Snake venoms are notable for the incredible variation in venom composition, even between individuals of the same species. Delving into this topic required the combined use of several different genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome sequencing data and others. Below, I go into more detail on specific research themes and work I've been involved with.
 
 <br>
 
 ## Linking gene regulatory network divergence to phenotypes
 
 ![left-aligned-image]({{ site.url }}{{ site.baseurl }}/assets/images/research1.png){: .align-left}
-A unifying theme across biology is understanding how genotypic modifications reflect in changes to a phenotype. I contributed to a study that identified many of the genomic sequences that control the production of rattlesnake venom [(Perry et al. 2022)](https://www.genome.org/cgi/doi/10.1101/gr.276251.121). This led to other work which examined the genomic structure of an unassembled, but major venom component [(Gopalan et al., 2022)](https://doi.org/10.1016/j.toxicon.2022.06.014) and regulatory network variation across a phylogenetic sampling [(Gopalan et al. 2024)](https://doi.org/10.1093/gbe/evae110). Continuing work in this theme will involve collection of large amounts of data to identify, with high precision, specific molecular changes that modify venom phenotypes. 
+A unifying theme across biology is understanding how changes in genotype cause changes in phenotype. My doctoral work was primarily centered on this topic. My first contribution was to a study that identified many of the genomic sequences that control the production of rattlesnake venom [(Perry et al. 2022)](https://www.genome.org/cgi/doi/10.1101/gr.276251.121). This directly led to other work examining the genomic structure of an unassembled, but major venom component [(Gopalan et al., 2022)](https://doi.org/10.1016/j.toxicon.2022.06.014) and regulatory network variation across a phylogenetic sampling [(Gopalan et al. 2024)](https://doi.org/10.1093/gbe/evae110). Continuing work in this theme will involve collection of large amounts of data to identify, with high precision, specific molecular changes that modify venom phenotypes. 
 
 <br>
 

@@ -9,10 +9,10 @@ In the broadest terms, my interests lie in understanding the molecular mechanism
 
 <br>
 
-## Linking gene regulatory network divergence to phenotypes
+## Linking gene regulatory network divergence to phenotypes in non-model systems
 
 ![left-aligned-image]({{ site.url }}{{ site.baseurl }}/assets/images/research1.png){: .align-left}
-A unifying theme across biology is understanding how changes in genotype cause changes in phenotype. My doctoral work was primarily centered on this topic. My first contribution was to a study that identified many of the genomic sequences that control the production of rattlesnake venom [(Perry et al. 2022)](https://www.genome.org/cgi/doi/10.1101/gr.276251.121). This directly led to other work examining the genomic structure of an unassembled, but major venom component [(Gopalan et al., 2022)](https://doi.org/10.1016/j.toxicon.2022.06.014) and regulatory network variation across a phylogenetic sampling [(Gopalan et al. 2024)](https://doi.org/10.1093/gbe/evae110). Continuing work in this theme will involve collection of large amounts of data to identify, with high precision, specific molecular changes that modify venom phenotypes. 
+A unifying theme across several fields of biology is understanding how changes in genotype cause changes in phenotype. My doctoral work was primarily centered on this topic. My first contribution was to a study that identified many of the genomic sequences that control the production of rattlesnake venom [(Perry et al. 2022)](https://www.genome.org/cgi/doi/10.1101/gr.276251.121). This directly led to other work characterizing the genomic structure of an unassembled, but major venom component [(Gopalan et al., 2022)](https://doi.org/10.1016/j.toxicon.2022.06.014) and regulatory network variation across a phylogenetic sampling [(Gopalan et al. 2024)](https://doi.org/10.1093/gbe/evae110). Continuing work in this area will involve collection of large amounts of genomic data to identify, with high precision, specific molecular changes that modify venom phenotypes. 
 
 <br>
 

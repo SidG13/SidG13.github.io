@@ -9,6 +9,7 @@ library(RColorBrewer)
 
 # this is a folder with .bam files (different samples mapped to same reference)
 track.folder = 'path/to/bams/' 
+track.folder = '/Volumes/SeagatePortableDrive/12_snakeVenomVar/Figure_and_Scripts/3_ATACseq_comparisons/1_chromVAR/bams'
 
 # Create a metadata file from .bam names
 # sample.meta = data.frame(SampleName = gsub('.bam', '' , grep('bam$', list.files(track.folder), value = T)))
@@ -97,6 +98,9 @@ TFBSs <- data.frame(
   SampleID = sample(sample.meta$SampleID, 30, replace = TRUE)
 )
 
+# Hi-C contact
+HiC <- data.frame(x1 = 8924000, x2 = 8924410, y1 = 0, y2 = 0, SampleID = "CV1090")
+
 ggplot() +
   theme_minimal() +
   geom_col(data = track.df, aes(x = start, y = score, fill = Species)) +
@@ -106,8 +110,9 @@ ggplot() +
            ymin = -Inf,
            ymax = +Inf,
            alpha = 0.2) +
+  geom_curve(data = HiC, aes(x = x1, y = y1, xend = x2, yend = y2), curvature = -0.2, color = "darkorchid3") + # make a curve showing a Hi-C contact
   geom_point(data = TFBSs, aes(x = pos, y = 100, color = TF)) + # Add coloured dots representing TFBSs
-  geom_gene_arrow(data = arrow, aes(xmin = start, xmax = end, y = 180), arrowhead_height = grid::unit(2, "mm"), arrow_body_height = grid::unit(1, "mm")) + # customize the gene arrow
+  geom_gene_arrow(data = arrow, aes(xmin = start, xmax = end, y = 180, fill = 'blue'), arrowhead_height = grid::unit(2, "mm"), arrow_body_height = grid::unit(1, "mm")) + # customize the gene arrow
   facet_wrap(~factor(SampleID, levels = sample.meta$SampleID), ncol = 1, strip.position = "right") + # can use scales = "free_y" if you want to have each track to have independently determined y axes
   scale_x_continuous(limits = c(start_pos,end_pos), expand = c(0,0), labels = label_number(scale = 1e-6), breaks = pretty_breaks(n=3)) + # use pretty_breaks to customize breakpoints in the axes
   scale_y_continuous(breaks = pretty_breaks(n=2)) +

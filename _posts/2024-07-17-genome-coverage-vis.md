@@ -123,7 +123,7 @@ The resulting `track.df` object will provide scores (RPKM normalized by default,
 <br>
 #### 3. Making a basic coverage plot
 
-First is a demonstration of them most basic plot, then we can increase its complexity by building off the starter code.
+First is a demonstration of the most basic plot, then we can increase its complexity by building off the starter code.
 
 The data used here represents ATAC-seq data from ten individuals of three species (viridis, concolor and cerberus). So for these plots, we want to split up coverage tracks to show each individual, and colour by species. This process involves a method called ["facet wrapping"](https://ggplot2.tidyverse.org/reference/facet_wrap.html). Here, we facet wrap by SampleID, then set `fill=Species`. We use `geom_col` because [we want heights to represent data values](https://ggplot2.tidyverse.org/reference/geom_bar.html). 
 
@@ -182,7 +182,7 @@ ggplot() +
 
 Adding annotations to ggplot is easy; it's just a matter of creating new data frames with the information you want to plot, then setting the appropriate x, y, and potentially fill and color values in the aes() calls to the various geoms.
 
-Lets add the following (this data is made up for the sake of illustration):
+Lets add the following (*this data is made up for the sake of illustration*):
 - A translucent gray region representing a peak called by MACS2 (peak-calling algorithm)
 - Transcription factors binding sites in each individual (coloured with `RColorBrewer`)
 - A gene arrow annotation (uses `gggenes`)
@@ -259,6 +259,6 @@ ggplot() +
 ## Additional steps
 Ultimately `ggplot` offers far more customization potential than IGV, making it more useful for making publication-ready figures. 
 
-Because the `track.df` object imported by `ggcoverage::LoadTrackFile` is already `tidy` formatted, this makes it incredibly easy to augment and manipulate with `dplyr`. For instance, you can calculate coverage statistics across some or all samples, and plot that in addition to coverage by creating an additional new variable to facet by. You can also add other plots using [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), such as expression profiles right next to coverage plots. See a demonstration of these figures [here](https://academic.oup.com/view-large/figure/474290098/evae110f6.jpg).
+Because the `track.df` object imported by `ggcoverage::LoadTrackFile` is already `tidy` formatted, this makes it incredibly easy to augment and manipulate with `dplyr`. For instance, you can calculate coverage statistics across some or all samples, and plot that in addition to coverage by creating an additional new variable to facet by. You can also add other plots using [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), such as expression profiles, right next to coverage plots. See a demonstration of these figures [here](https://academic.oup.com/view-large/figure/474290098/evae110f6.jpg).
 
 There are limits to `ggplot`, and there may be the need to touch up figures in other vector graphics software such as Adobe Illustrator or InkScape.

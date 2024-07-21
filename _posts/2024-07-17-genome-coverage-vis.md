@@ -27,8 +27,8 @@ The R script used in this tutorial can be found here: [genome-coverage-minimal-e
 
 <br>
 
-## Required R packages
-There are just two required dependancies for this tutorial: [`ggcoverage`](https://github.com/showteeth/ggcoverage), [`tidyverse`](https://www.tidyverse.org/).
+## R packages
+There are just two required packages for this tutorial: [`ggcoverage`](https://github.com/showteeth/ggcoverage), [`tidyverse`](https://www.tidyverse.org/).
 
 If you want to do a bit more figure customization: [`scales`](https://scales.r-lib.org/), [`gggenes`](https://github.com/wilkox/gggenes/tree/master) and [`RColorBrewer`](https://cran.r-project.org/web/packages/RColorBrewer/index.html) are used in the accompanying script.
 

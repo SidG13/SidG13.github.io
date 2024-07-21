@@ -2,20 +2,22 @@
 title: Research
 layout: page
 permalink: /research/
-image: assets/images/research.png
+# image: assets/images/research.png
 ---
 
-In the broadest terms, my interests lie in understanding the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), my focus was on investigating the production of phenotypic differences in snake venom systems. Snake venoms are notable for the incredible variation in venom composition, even between individuals of the same species. Delving into this topic required the combined use of several different genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome sequencing data and others. Below, I go into more detail on specific research themes and work I've been involved with.
+In the broadest terms, my interests lie in understanding the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), my focus was on investigating the production of phenotypic variation in the expression of toxins in snake venom. Snake venom are a notable evolutionary system because of the immense variation in venom composition, even between individuals of the same species. Studying this topic means combining inferences derived from several different functional genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome sequencing data and more. Below, I go into more detail on specific research themes and work I've been involved with.
 
 <br>
 
-## Linking gene regulatory network divergence to phenotypes in non-model systems
+## Divergent gene regulation and phenotypic variation in non-model systems
 
 ![left-aligned-image]({{ site.url }}{{ site.baseurl }}/assets/images/research1.png){: .align-left}
-A unifying theme across several fields of biology is understanding how changes in genotype cause changes in phenotype. My doctoral work was primarily centered on this topic. My first contribution was to a study that identified many of the genomic sequences that control the production of rattlesnake venom [(Perry et al. 2022)](https://www.genome.org/cgi/doi/10.1101/gr.276251.121). This directly led to other work characterizing the genomic structure of an unassembled, but major venom component [(Gopalan et al., 2022)](https://doi.org/10.1016/j.toxicon.2022.06.014) and regulatory network variation across a phylogenetic sampling [(Gopalan et al. 2024)](https://doi.org/10.1093/gbe/evae110). Continuing work in this area will involve collection of large amounts of genomic data to identify, with high precision, specific molecular changes that modify venom phenotypes. 
+A unifying theme across several fields of biology is understanding how changes in genotype cause changes in phenotype. My doctoral work was primarily centered on this topic. My first contribution was to a study that identified many of the genomic sequences and transcription factors that control the production of rattlesnake venom [(Perry et al. 2022)](https://www.genome.org/cgi/doi/10.1101/gr.276251.121). This directly led to supplemental work characterizing the genomic structure of major venom component in rattlesnakes [(Gopalan et al., 2022)](https://doi.org/10.1016/j.toxicon.2022.06.014) and regulatory network variation across a phylogenetic sampling [(Gopalan et al. 2024)](https://doi.org/10.1093/gbe/evae110). The latter study laid a foundation for the use of linear models to predict gene expression levels from multiple genomic predictor variables.
 
 <br>
 
 ## Using single-cell methods to detect variation-producing mechanisms
 
-Single-cell sequencing methods are a relatively new technique that we've used to identify molecular pathways that produce tissue-level expression heterogeneity [(Westfall and Gopalan et al., 2022)](https://doi.org/10.1093/gbe/evad109). A next step will be to leverage the combined measurement of gene expression and chromatin state to determine how changing genome accessiblity affects gene expression. This type of "multi-omic" assay provides an incredible increase in power to detect cis-regulatory elements compared to other tissue-based methods.
+Single-cell sequencing methods are a relatively new technique that we've used to identify molecular pathways that produce tissue-level expression heterogeneity [(Westfall et al., 2022)](https://doi.org/10.1093/gbe/evad109). 
+
+As a hypothesis testing platform, the predictive power of single-cell sequencing is affected by the number of cells sampled and the types of data that can be measured at once. Future goals in this area are to leverage the combined measurement of gene expression and chromatin state to determine how changing genome accessiblity affects gene expression. This type of "multi-omic" assay provides an incredible increase in power to detect cis-regulatory elements compared to other tissue-based methods that will help to provide much more detailed maps of regulatory interactions.

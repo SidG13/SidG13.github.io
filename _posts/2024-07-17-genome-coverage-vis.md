@@ -1,6 +1,6 @@
 ---
-title: "Visualizing mapped genomic data with ggplot"
-sub_title: "Methods to make publication-ready genomics figures in R"
+title: "Visualizing read alignment data with ggplot"
+sub_title: "Methods to make publication-ready genomic coverage figures in R"
 categories:
   - Bioinformatics
 elements:
@@ -14,9 +14,10 @@ elements:
   - ChIP-seq
   - WGS
   - mapping
+  - read alignment
 ---
  
- Coverage plots are a readily interpretable way to visualize genomic or epigenomic profiles (RNA-seq, proteomics, CHip-seq, ATAC-seq, WGS, etc.) across many samples mapped to the same reference. See some examples [here](https://www.nature.com/articles/s41588-021-00914-y/figures/4 "Bowfin genome ATAC"), [here](https://genome.cshlp.org/content/32/6/1058/F3.expansion.html "Rattlesnake ChIP-ATAC"), and [here](https://academic.oup.com/view-large/figure/474290094/evae110f5.jpg "Rattlesnake ATAC"). A common tool to visualize genomic data in this manner is [IGV](https://igv.org/), which while versatile, often can be challenging to customize for publication-ready figures. Here is a tutorial on using ggplot and R to have much more artistic control over genomic coverage figures. The structure of intermediate objects will be shown so they can be easily replicated with custom data.
+ Coverage plots are a readily interpretable way to visualize genomic or epigenomic profiles (RNA-seq, ChIP-seq, ATAC-seq, WGS, etc.) across many samples mapped to the same reference. See some examples [here](https://www.nature.com/articles/s41588-021-00914-y/figures/4 "Bowfin genome ATAC"), [here](https://genome.cshlp.org/content/32/6/1058/F3.expansion.html "Rattlesnake ChIP-ATAC"), and [here](https://academic.oup.com/view-large/figure/474290094/evae110f5.jpg "Rattlesnake ATAC"). A common tool to visualize genomic data in this manner is [IGV](https://igv.org/), which while versatile, often can be challenging to customize for publication-ready figures. Here is a tutorial on using ggplot and R to have much more artistic control over genomic coverage figures. The structure of intermediate objects will be shown so they can be easily replicated with custom data.
 
 *Disclaimer*: this is not a `ggplot` or `dplyr` tutorial, but rather an example of a `ggplot` application for visualizating quantitative genomic mapping data. 
 
@@ -27,14 +28,14 @@ The R script used in this tutorial can be found here: [genome-coverage-minimal-e
 <br>
 
 ## Required R packages
-There are a just two required dependancies for this tutorial: [`ggcoverage`](https://github.com/showteeth/ggcoverage), [`tidyverse`](https://www.tidyverse.org/).
+There are just two required dependancies for this tutorial: [`ggcoverage`](https://github.com/showteeth/ggcoverage), [`tidyverse`](https://www.tidyverse.org/).
 
 If you want to do a bit more figure customization: [`scales`](https://scales.r-lib.org/), [`gggenes`](https://github.com/wilkox/gggenes/tree/master) and [`RColorBrewer`](https://cran.r-project.org/web/packages/RColorBrewer/index.html) are used in the accompanying script.
 
 <br>
 
 ## Making coverage plots
-`ggcoverage` is a package that has its own genomic coverage visualization implementation, but you'll get more flexibility with `ggplot`. It does however have a nice function to import many [commonly used coverage datatypes](https://rdrr.io/cran/ggcoverage/man/LoadTrackFile.html) (bam, wig, bw, bedgraph, txt) efficiently, without overloading your RAM, used in this guided example. 
+`ggcoverage` is a package that has its own genomic coverage visualization implementation, but you'll get more flexibility with `ggplot`. It does however have a nice function to import many [commonly used alignment data formats](https://rdrr.io/cran/ggcoverage/man/LoadTrackFile.html) (bam, wig, bw, bedgraph, txt) efficiently, without overloading your RAM, used in this guided example. 
 
 I'm using [data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1061517/ "Data") from a [recent publication](https://doi.org/10.1093/gbe/evae110 "GBE 2024") representing chromatin accessibility (ATAC-seq) libraries mapped to a common reference genome, producing .bam alignment files. 
 
@@ -42,7 +43,7 @@ I'm using [data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1061517/ "Data") f
 
 #### 1. Set up metadata, and load in coverage files 
 
-The first step is to configure a metadata object to let `ggcoverage` know where to look for data. You can include any other useful data attributes that you want to represent in the visualization here (usually for grouping or colouring).
+The first step is to configure a metadata object to let `ggcoverage` know where to look for data. You can include any other useful data attributes that you want to represent in the visualization for grouping or colouring.
 
 ```R
 # this is a folder with .bam files (multi-sample ATAC-seq mapped to common reference)
@@ -50,7 +51,7 @@ track.folder = 'path/to/bams/'
 
 # Create metadata from .bam names
 # sample.meta = data.frame(SampleName = gsub('.bam', '' , grep('bam$', list.files(track.folder), value = T)))
-# sample.meta is just a 1 column df with names of bam files at this points (without the extension) equivalent to:
+# sample.meta is just a 1 column df with basenames of bam files (no .bam extension), equivalent to:
 
 sample.meta <- data.frame(
   stringsAsFactors = FALSE,
@@ -104,7 +105,7 @@ track.df = LoadTrackFile(track.folder = track.folder, format = "bam", # change b
                          #region = paste0(chrom, ':', start_pos, '-', end_pos) # bw
 )
 ```
-The resulting `track.df` object will provide scores (RPKM normalized by default, this can be changed) representing levels of coverage across genomic coordinates, either single nucleotides or larger bins depending on the options used in `LoadTrackFile`. Note that the attributes we added to `sample.meta`, *SampleID* and *Species*, also appear in this object. This will allow us to group and colour our plot. You may notice that this dataframe is already in [`tidy`](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format, ideal for `ggplot`. See below for a snapshot of `track.df`: 
+The resulting `track.df` object will provide scores (RPKM normalized by default, this can be changed) representing levels of coverage across genomic coordinates, either nucleotide-by-nucleotide or by larger bins depending on the options used in `LoadTrackFile`. Note that the attributes we added to `sample.meta`, *SampleID* and *Species*, are also included in this object. This will allow us to group and colour our plot. You may notice that this dataframe is already in [`tidy`](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format, ideal for input to `ggplot`. See below for a snapshot of `track.df`: 
 
 | seqnames     |   start   |   end     | score |  SampleID  | Species  |
 |:-------------|:---------:|:---------:|:-----:|:------:|:------:|
@@ -125,7 +126,7 @@ The resulting `track.df` object will provide scores (RPKM normalized by default,
 
 First is a demonstration of the most basic plot, then we can increase its complexity by building off the starter code.
 
-The data used here represents ATAC-seq data from ten individuals of three species (viridis, concolor and cerberus). So for these plots, we want to split up coverage tracks to show each individual, and colour by species. This process involves a method called ["facet wrapping"](https://ggplot2.tidyverse.org/reference/facet_wrap.html). Here, we facet wrap by SampleID, then set `fill=Species`. We use `geom_col` because [we want heights to represent data values](https://ggplot2.tidyverse.org/reference/geom_bar.html). 
+The data used here represents ATAC-seq data from ten individuals of three species (*viridis*, *concolor* and *cerberus*). So for these plots, we want to split up coverage tracks to show each individual, and colour by species. This process involves ["facet wrapping"](https://ggplot2.tidyverse.org/reference/facet_wrap.html). Here, we facet wrap by SampleID, then set `fill=Species`. We use `geom_col` because [we want heights to represent data values](https://ggplot2.tidyverse.org/reference/geom_bar.html). 
 
 ```R
 # Basic plot
@@ -145,7 +146,7 @@ Not quite publication quality, so we can make a few more customizations.
 #### 4. More cutomization with `ggplot`
 `ggplot` allows a great deal of customization and complexity. For example, we can add the following:
 - Single column facet
-- Changed colours, axes labels and legend title (requires `scales`)
+- Changed colours, axes labels and legend (requires `scales`)
 <br>
 
 ```R
@@ -180,12 +181,12 @@ ggplot() +
 
 #### 5. Adding annotations to ggplot
 
-Adding annotations to ggplot is easy; it's just a matter of creating new data frames with the information you want to plot, then setting the appropriate x, y, and potentially fill and color values in the aes() calls to the various geoms.
+You may want to add data annotation to your plot, representing other biological/genomic information. Adding annotations to ggplot is easy; it's just a matter of creating new data frames with the information you want to plot, then setting the appropriate x, y, and potentially fill and color values in the aes() calls to the various geoms.
 
 Lets add the following (*this data is made up for the sake of illustration*):
-- A translucent gray region representing a peak called by MACS2 (peak-calling algorithm)
+- A translucent gray region representing a peak region (such as those called by peak-calling algorithms)
+- An arrow representing the gene locus (uses `gggenes`)
 - Transcription factors binding sites in each individual (coloured with `RColorBrewer`)
-- A gene arrow annotation (uses `gggenes`)
 - A Hi-C contact curve
 
 ```R
@@ -259,6 +260,6 @@ ggplot() +
 ## Additional steps
 Ultimately `ggplot` offers far more customization potential than IGV, making it more useful for making publication-ready figures. 
 
-Because the `track.df` object imported by `ggcoverage::LoadTrackFile` is already `tidy` formatted, this makes it incredibly easy to augment and manipulate with `dplyr`. For instance, you can calculate coverage statistics across some or all samples, and plot that in addition to coverage by creating an additional new variable to facet by. You can also add other plots using [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), such as expression profiles, right next to coverage plots. See a demonstration of these figures [here](https://academic.oup.com/view-large/figure/474290098/evae110f6.jpg).
+Because the `track.df` object imported by `ggcoverage::LoadTrackFile` is already `tidy` formatted, this makes it incredibly easy to augment and manipulate with `dplyr`. For instance, you can calculate coverage statistics across some or all samples, and plot that in addition to coverage by creating an additional variable to facet by. You can also add other plots using [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), such as expression profiles, right next to coverage plots. See a demonstration of these figures [here](https://academic.oup.com/view-large/figure/474290098/evae110f6.jpg).
 
 There are limits to `ggplot`, and there may be the need to touch up figures in other vector graphics software such as Adobe Illustrator or InkScape.

@@ -9,7 +9,6 @@ library(RColorBrewer)
 
 # this is a folder with .bam files (different samples mapped to same reference)
 track.folder = 'path/to/bams/' 
-track.folder = '/Volumes/SeagatePortableDrive/12_snakeVenomVar/Figure_and_Scripts/3_ATACseq_comparisons/1_chromVAR/bams'
 
 # Create a metadata file from .bam names
 # sample.meta = data.frame(SampleName = gsub('.bam', '' , grep('bam$', list.files(track.folder), value = T)))
@@ -32,8 +31,8 @@ sample.meta <- sample.meta %>%
 
 # load regions of interest from bam files
 chrom = "scaffold-mi2"
-start_pos = floor(8923875 / 100 ) * 100 
-end_pos = ceiling(8924426 / 500 ) * 500
+start_pos = floor(8923875 / 100 ) * 100 # Rounds the start coordinate to the nearest 100
+end_pos = ceiling(8924426 / 500 ) * 500 # Rounds the end coordinate to the nearest 500
 track.df = LoadTrackFile(track.folder = track.folder, format = "bam", # change to bam/bw
                          bamcoverage.path = '/Users/sidgopalan/miniconda3/bin/bamCoverage',
                          meta.info = sample.meta,
@@ -45,7 +44,7 @@ track.df = LoadTrackFile(track.folder = track.folder, format = "bam", # change t
 ggplot() +
   theme_minimal() +
   geom_col(data = track.df, aes(x = start, y = score, fill = Species)) +
-  facet_wrap(~factor(SampleID, levels = sample.meta$SampleID), ncol = 1, strip.position = "right") + # scales = "free_y"
+  facet_wrap(~factor(SampleID, levels = sample.meta$SampleID), ncol = 1, strip.position = "right") + 
   guides(fill = guide_legend(nrow = 1, title = NULL)) +
   labs(x = "Position on scaffold-mi2", y = "ATAC-seq read density") +
   ggtitle("Regulatory region")

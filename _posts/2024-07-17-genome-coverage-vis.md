@@ -262,4 +262,4 @@ Ultimately `ggplot` offers far more customization potential than IGV, making it 
 
 Because the `track.df` object imported by `ggcoverage::LoadTrackFile` is already `tidy` formatted, this makes it incredibly easy to augment and manipulate with `dplyr`. For instance, you can calculate coverage statistics across some or all samples, and plot that in addition to coverage by creating an additional variable to facet by. You can also add other plots using [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html), such as expression profiles, right next to coverage plots. See a demonstration of these figures [here](https://academic.oup.com/view-large/figure/474290098/evae110f6.jpg).
 
-There are limits to `ggplot`, and there may be the need to touch up figures in other vector graphics software such as Adobe Illustrator or InkScape.
+There are limits to `ggplot`, and there may be the need to touch up figures in other vector graphics tools such as Adobe Illustrator or InkScape.

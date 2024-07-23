@@ -35,7 +35,7 @@ If you want to do a bit more figure customization: [`scales`](https://scales.r-l
 <br>
 
 ## Making coverage plots
-`ggcoverage` is a package that has its own genomic coverage visualization implementation, but you'll get more flexibility with `ggplot`. It does however have a nice function to import many [commonly used alignment data formats](https://rdrr.io/cran/ggcoverage/man/LoadTrackFile.html) (bam, wig, bw, bedgraph, txt) efficiently, without overloading your RAM, used in this guided example. 
+`ggcoverage` is a package that has its own genomic coverage visualization implementation, but you'll get more flexibility with `ggplot`. It does however have a nice function, used in this guided example, to import many [commonly used alignment data formats](https://rdrr.io/cran/ggcoverage/man/LoadTrackFile.html) (bam, wig, bw, bedgraph, txt) efficiently, without overloading your RAM. 
 
 I'm using [data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1061517/ "Data") from a [recent publication](https://doi.org/10.1093/gbe/evae110 "GBE 2024") representing chromatin accessibility (ATAC-seq) libraries mapped to a common reference genome, producing .bam alignment files. 
 

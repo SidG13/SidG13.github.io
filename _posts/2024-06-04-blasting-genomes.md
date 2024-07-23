@@ -176,7 +176,7 @@ rm -rf "${genome}.split"
 <br>
 ## Output
 
-An example output found in the `megablast.out` file is shown below. The columns correspond to options set with the `-outfmt` argument.
+An example output found in the `megablast.out` file is shown below. The columns correspond to options set with the `-outfmt` parameter.
 
 ```bash
 Scaffold_31_HRSCAF_176	MT070612	8732	Eukaryota	Crotalus durissus terrificus	tropical rattlesnake	0.0	6948

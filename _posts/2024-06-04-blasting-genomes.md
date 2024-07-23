@@ -11,7 +11,7 @@ elements:
   - taxonomy
 ---
  
-Here I'll show you how to parallelize BLAST to greatly improve runtime. This may be needed if you are BLASTing a large query sequence set against a giant database. The specific problem I'm solving here is to identify contaminant sequences (of non-eukaryotic origin), accessioned in NCBI's `nt` database, in a eukaryotic genome assembly stored locally.  But, you can easily modify this procedure for any use case (such as using different search parameters, databases etc.) by changing the provided script.
+BLAST can be parallelized to greatly improve runtime. This may be needed if you are BLASTing a large query sequence set against a giant database. The specific problem I was faced with solving was to identify contaminant sequences (of non-eukaryotic origin), accessioned in NCBI's `nt` database, in a eukaryotic genome assembly stored locally.  This procedure however can be easily modify for any use case (such as using different blast flavours, parameters, databases etc.) by changing the provided script.
 
 **Make sure you have plenty of available space on your machine (several Tb) before uncompressing any files from NCBI!**
 

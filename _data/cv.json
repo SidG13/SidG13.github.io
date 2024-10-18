@@ -39,6 +39,13 @@
     ],
     "publications": [
       {
+        "name": "Single-cell resolution of intestinal regeneration in pythons without crypts illuminates conserved vertebrate regenerative mechanisms",
+        "publisher": "Proceedings of the National Academy of Sciences",
+        "releaseDate": "2024",
+        "website": "www.pnas.org/doi/10.1073/pnas.2405463121",
+        "summary": "Westfall A.K., ***S.S. Gopalan***, J.C. Kay, T.S. Tippetts, M.B. Cervantes, K. Lackey, S.M. Chowdhury, M.W. Pellegrino, and T.A. Castoe."
+      },
+      {
         "name": "Diverse gene regulatory mechanisms alter rattlesnake venom gene expression at fine evolutionary scales",
         "publisher": "Genome Biology and Evolution",
         "releaseDate": "2024",

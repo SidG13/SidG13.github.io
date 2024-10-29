@@ -19,7 +19,7 @@ elements:
  
  Read coverage plots are a readily interpretable way to visualize genomic or epigenomic profiles (RNA-seq, ChIP-seq, ATAC-seq, WGS, etc.) across many samples mapped to the same reference. See some examples [here](https://www.nature.com/articles/s41588-021-00914-y/figures/4 "Bowfin genome ATAC"), [here](https://genome.cshlp.org/content/32/6/1058/F3.expansion.html "Rattlesnake ChIP-ATAC"), and [here](https://academic.oup.com/view-large/figure/476385981/evae110f5.jpg "Rattlesnake ATAC"). A common tool to visualize genomic data in this manner is [IGV](https://igv.org/), which while versatile, often can be challenging to customize for publication-ready figures. Here is a tutorial on using ggplot and R to have much more artistic control over genomic coverage figures. The structure of intermediate objects will be shown so they can be easily replicated with custom data.
 
-*Disclaimer*: this is not a `ggplot` or `dplyr` tutorial, but rather an example of a `ggplot` application for visualizating quantitative genomic mapping data. 
+*Disclaimer*: this is not a `ggplot` or `dplyr` tutorial, but rather an example of an application of these libraries for visualizating quantitative genomic mapping data. 
 
 The R script used in this tutorial can be found here: [genome-coverage-minimal-example.R][1].
 
@@ -35,15 +35,15 @@ If you want to do a bit more figure customization: [`scales`](https://scales.r-l
 <br>
 
 ## Making coverage plots
-`ggcoverage` is a package that has its own genomic coverage visualization implementation, but you'll get more flexibility with `ggplot`. It does however have a nice function, used in this guided example, to import many [commonly used alignment data formats](https://rdrr.io/cran/ggcoverage/man/LoadTrackFile.html) (bam, wig, bw, bedgraph, txt) efficiently, without overloading your RAM. 
+`ggcoverage` is a package that has its own genomic coverage visualization implementation, but you'll get more flexibility with `ggplot`. It does however have a nice function, used in this guided example, to import many [commonly used alignment data formats](https://rdrr.io/cran/ggcoverage/man/LoadTrackFile.html) (bam, wig, bw, bedgraph, txt) efficiently, without putting too much stress on memory requirements, meaning it can be run locally quite easily. 
 
-I'm using [data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1061517/ "Data") from a [recent publication](https://doi.org/10.1093/gbe/evae110 "GBE 2024") representing chromatin accessibility (ATAC-seq) libraries mapped to a common reference genome, producing .bam alignment files. 
+I'm using [data](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1061517/ "Data") from a [recent publication](https://doi.org/10.1093/gbe/evae110 "GBE 2024") representing chromatin accessibility (ATAC-seq) data that was mapped to a common reference genome, producing genomic alignment files (bam format). 
 
 <br>
 
 #### 1. Set up metadata, and load in coverage files 
 
-The first step is to configure a metadata object to let `ggcoverage` know where to look for data. You can include any other useful data attributes that you want to represent in the visualization for grouping or colouring.
+The first step is to configure a metadata object to let `ggcoverage` know where to look for data. You can include any other useful data attributes that you want to represent in the visualization such as for grouping or colouring.
 
 ```R
 # this is a folder with .bam files (multi-sample ATAC-seq mapped to common reference)

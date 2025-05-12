@@ -8,20 +8,27 @@
       {% for e in cv.education %}
         <div class="education-entry" style="margin-bottom: 1.5em;">
           {% if e.institution %}
-            <h4 class="institution">{{ e.institution }}</h4>
+            <h4 class="institution" style="margin-bottom: 0;">{{ e.institution }}</h4>
           {% endif %}
-          <div class="date">
+          <div class="date" style="margin: 0;">
             {% if e.startDate %}
               <span class="startDate">{{ e.startDate }}</span>
             {% endif %}
             {% if e.endDate == '' %}
-              <span class="endDate">{{ site.data.theme.t.present | default: 'Present' | prepend: ' &mdash; ' }}</span>
+              <span class="endDate">{{ site.data.theme.t.present | default: 'Present' | prepend: ' — ' }}</span>
             {% else %}
-              <span class="endDate">{{ e.endDate | prepend: ' &mdash; ' }}</span>
+              <span class="endDate">{{ e.endDate | prepend: ' — ' }}</span>
             {% endif %}
           </div>
           {% if e.area %}
-            <div class="area"><strong>{{ e.area }}{% if e.studyType %}<span class="studyType">{{ e.studyType | prepend: ', ' }}</span>{% endif %}</strong>{% if e.gpa %}<span class="gpa">{{ e.gpa | prepend: ' (' | append: ' GPA)' }}</span>{% endif %}</div>
+            <div class="area" style="margin-top: 0;">
+              <strong>
+                {{ e.area }}{% if e.studyType %}<span class="studyType">{{ e.studyType | prepend: ', ' }}</span>{% endif %}
+              </strong>
+              {% if e.gpa %}
+                <span class="gpa">{{ e.gpa | prepend: ' (' | append: ' GPA)' }}</span>
+              {% endif %}
+            </div>
           {% endif %}
           {% if e.courses %}
             <h5 class="courses-title">{{ site.data.theme.t.cv_education_courses | default: 'Courses' }}</h5>

@@ -1,7 +1,7 @@
 {
     "basics": {
-      "name": "Siddharth Gopalan",
-      "label": "PhD Candidate, Quantitative Biology",
+      "name": "Siddharth Gopalan, Ph.D.",
+      "label": "Functional genomics, quantitative biology",
       "picture": "",
       "email": "Siddharth.Gopalan@uta.edu",
       "summary": "I leverage several different computational genomic techniques and methods to understand the molecular drivers of phenotypic variation.",
@@ -21,14 +21,29 @@
     "work": [
         {
           "company": "University of Texas, Arlington",
+          "position": "Postdoctoral Research Associate",
+          "website": "https://www.uta.edu/academics/schools-colleges/science/departments/biology",
+          "startDate": "June 2025",
+          "endDate": "",
+          "summary": "Postdoctoral research of evolution of gene regulatory networks and origins of phenotypic diversity."
+        },
+        {
+          "company": "University of Texas, Arlington",
           "position": "Graduate Research and Teaching Assistant",
           "website": "https://www.uta.edu/academics/schools-colleges/science/departments/biology",
-          "startDate": "Aug 2020",
-          "endDate": "",
+          "startDate": "Sept 2020",
+          "endDate": "May 2025",
           "summary": "Laboratory instructor for undergraduate courses Cell and Molecular Biology (BIOL 1441) and Evolution and Ecology (BIOL 1442)."
         }
       ],
     "education": [
+      {
+        "institution": "University of Texas, Arlington",
+        "area": "Quantitative Biology",
+        "studyType": "Ph.D.",
+        "startDate": "2020",
+        "endDate": "2025"
+      },
       {
         "institution": "University of Toronto",
         "area": "Genome Biology; Evolutionary Biology",
@@ -38,6 +53,13 @@
       }
     ],
     "publications": [
+      {
+        "name": "Unique physiological and regulatory activity drives divergent toxin and non-toxin gene expression in rattlesnake accessory venom glands",
+        "publisher": "Toxicon",
+        "releaseDate": "2025",
+        "website": "https://doi.org/10.1016/j.toxicon.2025.108376",
+        "summary": "Kim C., S.N. Smith, ***S.S. Gopalan***, S.R. Kerwin, K. Ballard, B.W. Perry, C.F. Smith, A.J. Saviola, R.H. Adams, S.P. Mackessy, and T.A. Castoe"
+      },
       {
         "name": "Single-cell resolution of intestinal regeneration in pythons without crypts illuminates conserved vertebrate regenerative mechanisms",
         "publisher": "Proceedings of the National Academy of Sciences",

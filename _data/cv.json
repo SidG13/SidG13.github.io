@@ -1,10 +1,10 @@
 {
     "basics": {
-      "name": "Siddharth Gopalan, Ph.D.",
-      "label": "Functional genomics, quantitative biology",
+      "name": "Siddharth Gopalan",
+      "label": "Functional genomics, quantitative biology, evolutionary genetics",
       "picture": "",
       "email": "Siddharth.Gopalan@uta.edu",
-      "summary": "I leverage several different computational genomic techniques and methods to understand the molecular drivers of phenotypic variation.",
+      "summary": "I study the origins of phenotypic diversity and the relationships between genotypes and phenotypes using several different computational genomic techniques and methods (single-cell methods, Hi-C, ATAC-seq, RNA-seq, ChIP-seq etc.)",
       "profiles": [
         {
           "network": "",
@@ -25,7 +25,7 @@
           "website": "https://www.uta.edu/academics/schools-colleges/science/departments/biology",
           "startDate": "June 2025",
           "endDate": "",
-          "summary": "Postdoctoral research of evolution of gene regulatory networks and origins of phenotypic diversity."
+          "summary": ""
         },
         {
           "company": "University of Texas, Arlington",
@@ -33,7 +33,7 @@
           "website": "https://www.uta.edu/academics/schools-colleges/science/departments/biology",
           "startDate": "Sept 2020",
           "endDate": "May 2025",
-          "summary": "Laboratory instructor for undergraduate courses Cell and Molecular Biology (BIOL 1441) and Evolution and Ecology (BIOL 1442)."
+          "summary": ""
         }
       ],
     "education": [

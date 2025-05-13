@@ -5,7 +5,7 @@ permalink: /research/
 # image: assets/images/research.png
 ---
 
-In broad terms, my interests lie in understanding the molecular mechanisms underlying the production of phenotypic variation in complex traits. During my Ph.D. with [Todd Castoe](https://www.castoelaboratory.org/), my focus was on investigating the production of phenotypic variation in the expression of toxins in snake venom. Snake venoms are a notable evolutionary system because of the high degree of variation in venom composition, even between individuals of the same species. Studying this topic means combining inferences derived from several different functional genomic techniques, such as RNA-seq, ATAC-seq, single-cell methods, whole genome sequencing data and more. Below, I go into more detail on specific research themes and work I've been involved with.
+Broadly, I'm interested in identifying the molecular mechanisms underlying the production of phenotypic variation in phenotypic traits. During my Ph.D. and postdoc with [Todd Castoe](https://www.castoelaboratory.org/), my focus was investigating the molecular drivers of phenotypic variation in the expression of different snake venom genes from venom glands. Not only are we studying why venoms are so variable, but also much more generally how different phenotypes arise by fundamentally different genomic processes. In the lab, we leverage a broad array of functional genomic methods to study snake venom variation like single-cell sequencing methods, Hi-C, ATAC-seq, RNA-seq, ChIP-seq and whole genome sequencing. Below, I go into more detail on specific research themes and work I've been involved with.
 
 <br>
 
